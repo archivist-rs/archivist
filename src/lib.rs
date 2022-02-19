@@ -3,6 +3,7 @@ use tinyjson::JsonValue;
 
 pub trait JsonFromFilename {
     fn to_jsonl(&self) -> Vec<JsonValue>;
+    fn to_html (&self) -> String        ;
 }
 impl JsonFromFilename for str {
     fn to_jsonl(&self) -> Vec<JsonValue> {
@@ -21,4 +22,23 @@ impl JsonFromFilename for str {
         }
         finall
     }
+    fn to_html(&self) -> String {
+        let filename = self;
+        fs::read_to_string(filename).expect("Could not load file!")
+    }
 }
+
+pub fn me(s: JsonValue) -> String {
+    let id_: f64 = s.try_into().unwrap();
+    let id__: String = format!("{}", id_);
+    id__
+}
+
+const hi: &'static str = r#"struct TweetData {
+    content: String,
+    user: JsonValue::Object,
+    likes: String,
+    retweets: String,
+    replies: String,
+    id: u64,
+}"#;
