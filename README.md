@@ -1,4 +1,7 @@
-# archivist
+# archivist ![Lines of code](https://img.shields.io/tokei/lines/github/archivist-rs/archivist?color=darkgreen) ![MIT OR Apache-2.0](https://img.shields.io/badge/licence-MIT%20OR%20Apache--2.0-blue) ![GitHub contributors](https://img.shields.io/github/contributors/archivist-rs/archivist)
+
+![Screenshot](img/screenshot.png)
+
 Webpage archiver that focuses on content rather than the actual pages
 
 ## Note
