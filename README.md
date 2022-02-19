@@ -10,3 +10,14 @@ Put a tweets.jsonl into the working directory. Don't have one? I don't blame you
 This project uses the Rocket web server, as it's fast and quite simple.
 
 And of course it uses Rust, because Rust == good. Or should I say: `rust == Ratings::Good`
+
+## Licence
+Licenced under either of
+
+Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+MIT License (http://opensource.org/licenses/MIT)
+
+at your option.
+
+### Contributing
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
