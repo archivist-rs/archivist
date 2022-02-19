@@ -2,10 +2,10 @@ use std::fs;
 use tinyjson::JsonValue;
 
 pub trait JsonFromFilename {
-    fn load_jsonl(&self) -> Vec<JsonValue>;
+    fn to_jsonl(&self) -> Vec<JsonValue>;
 }
 impl JsonFromFilename for str {
-    fn load_jsonl(&self) -> Vec<JsonValue> {
+    fn to_jsonl(&self) -> Vec<JsonValue> {
         let filename = self;
         println!("LOADING FILE {} !", filename);
         let data_ = fs::read_to_string(filename).expect("Could not load file!");
