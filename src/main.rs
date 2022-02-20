@@ -5,10 +5,22 @@ use rocket::response::content::Html;
 use tinyjson::JsonValue;
 
 #[macro_use] extern crate rocket;
+
+#[get("/GetSaveType/load")]
+fn hi() -> Html<String> {
+    Html("templates/website_choice.html".to_html())
+}
+
+#[get("/save")]
+fn spn() -> Html<String> {
+    let mut base_html = "templates/save.html".to_html();
+    Html(base_html)
+}
+
 #[get("/")]
 fn index() -> Html<String> {
     let mut tweets = "tweets.jsonl".to_jsonl();
-    let mut base_html   = "ui.html".to_html()      ;
+    let mut base_html = "templates/ui.html".to_html();
 
     let mut full_tweets = String::new();
     for tweet in tweets {
@@ -36,5 +48,5 @@ fn index() -> Html<String> {
 }
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![index])
+    rocket::build().mount("/", routes![index, spn]).mount("/save/Save", routes![hi])
 }
