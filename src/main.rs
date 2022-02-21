@@ -1,6 +1,6 @@
 mod lib;
 use crate::lib::*;
-use crate::lib::JsonFromFilename;
+use crate::lib::JSONL;
 use rocket::response::content::Html;
 use tinyjson::JsonValue;
 
@@ -8,19 +8,20 @@ use tinyjson::JsonValue;
 
 #[get("/GetSaveType/load")]
 fn hi() -> Html<String> {
-    Html("templates/website_choice.html".to_html())
+    Html(read("templates/website_choice.html"))
 }
 
 #[get("/save")]
 fn spn() -> Html<String> {
-    let mut base_html = "templates/save.html".to_html();
+    let mut base_html = read("templates/save.html");
     Html(base_html)
 }
 
 #[get("/")]
 fn index() -> Html<String> {
-    let mut tweets = "tweets.jsonl".to_jsonl();
-    let mut base_html = "templates/ui.html".to_html();
+    let tweets_: JSONL = read("tweets.jsonl").into();
+    let tweets = tweets_.data;
+    let mut base_html = read("templates/ui.html");
 
     let mut full_tweets = String::new();
     for tweet in tweets {
